@@ -1,7 +1,6 @@
-import { useState } from "react";
 import Logo from "../../assets/img/logo.png"
 
-const Control:React.FC<{ children: any, setLoader:any }> = ({children, setLoader}) => {
+const Control:React.FC<{ children: any}> = ({children}) => {
    return <div className="container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
          <div className="container">
