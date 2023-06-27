@@ -20,7 +20,7 @@ const Login:React.FC  = () => {
 
       <div className="col-12">
          <label className="form-label">Password</label>
-         <input type="password" name="password" class="form-control" id="yourPassword" required/>
+         <input type="password" name="password" className="form-control" id="yourPassword" required/>
          <div className="invalid-feedback">Please enter your password!</div>
       </div>
 
