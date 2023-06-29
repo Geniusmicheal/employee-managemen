@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import Logo from "../assets/img/logo.png";
 import profileImg from "../assets/img/profile-img.jpg";
 
+// toggle-sidebar 
+
 const Header:React.FC<{ userData:any }>  = ({userData}) => { 
    return <header id="header" className="header fixed-top d-flex align-items-center">
 
@@ -10,7 +12,7 @@ const Header:React.FC<{ userData:any }>  = ({userData}) => {
             <img src={Logo} alt=""/>
             <span className="d-none d-lg-block">NiceAdmin</span>
          </Link>
-         <i className="bi bi-list toggle-sidebar-btn"></i>
+         <i className="bi bi-list toggle-sidebar-btn" onClick={()=>document.body.classList.toggle("toggle-sidebar")}></i>
       </div>
 
       <div className="search-bar">
