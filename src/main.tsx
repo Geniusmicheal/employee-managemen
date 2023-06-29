@@ -6,9 +6,12 @@ import './assets/css/bootstrap-icons/bootstrap-icons.min.css';
 
 import AppRouter from './AppRouter';
 import { RouterProvider } from 'react-router-dom'
+import AppProvider from './provider/AppProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={AppRouter}/>
+    <AppProvider>
+      <RouterProvider router={AppRouter}/>
+    </AppProvider>
   </React.StrictMode>,
 )

@@ -1,12 +1,17 @@
+import { useEffect } from "react";
+import { onSubmitAuth } from "./Service";
 import Logo from "../../assets/img/logo.png";
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from './../../provider/AppProvider';
 
-const Control:React.FC<{ children: any}> = ({children}) => {
+
+const Control:React.FC<{ children: any, setLoader:any }> = ({children, setLoader}) => {
    const navigate = useNavigate(),
-   onSubmitAuth:any= (event:any) => {
-      event.preventDefault();
-      navigate('/dashboard');
-   }
+   { userData, setUserData } = useAppContext();
+
+   useEffect( () => { 
+      if(userData) navigate('/dashboard');
+   } ,[userData]);
 
    return <div className="container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -22,7 +27,7 @@ const Control:React.FC<{ children: any}> = ({children}) => {
 
                   <div className="card mb-3">
                      <div className="card-body">
-                        <form className="row g-3 needs-validation" method="post" autoComplete="off"  onSubmit={onSubmitAuth}>{children}</form>
+                        <form className="row g-3 needs-validation" method="post" autoComplete="off" onSubmit={onSubmitAuth.bind(this, {navigate,setLoader, setUserData})}>{children}</form>
                      </div>
                   </div>
                </div>
